@@ -7,7 +7,7 @@ pkg = require('../../../package.json')
 
 class SlackIntegration
   DEFAULT_MESSAGE = '#{player} is playing #{game}. Go join them!'
-  VALID_COMMANDS = { ADD: 'add', ONLINE: 'online', REMOVE: 'remove' }
+  VALID_COMMANDS = { ADD: 'add', ONLINE: 'online', REMOVE: 'remove', HELP: 'help' }
 
   # each slack connection needs to store the users it cares about
   usersToCheck = []
@@ -100,6 +100,11 @@ class SlackIntegration
         @sendMessage(onlineMessage, channel)
       else
         @sendMessage('No users currently in game', channel)
+      return
+    
+    # help
+    if commandAction is VALID_COMMANDS.HELP
+      @sendMessage('need help', channel)
       return
 
   sendMessage: (message, channel)->
