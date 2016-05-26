@@ -104,7 +104,7 @@ class SlackIntegration
     
     # help
     if commandAction is VALID_COMMANDS.HELP
-      @sendMessage('need help', channel)
+      @sendMessage('Available commands are: ADD, ONLINE, REMOVE', channel)
       return
 
   sendMessage: (message, channel)->
