@@ -5,7 +5,7 @@ Steambuddy = require('./js/steambuddy.js')
 
 server = new Hapi.Server()
 server.connection(
-  port: process.env.PORT
+  port: process.env.PORT ?= 9002
 )
 
 server.route
